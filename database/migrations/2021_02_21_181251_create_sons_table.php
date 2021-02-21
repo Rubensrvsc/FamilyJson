@@ -16,6 +16,12 @@ class CreateSonsTable extends Migration
         Schema::create('sons', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->string("name_son");
+            $table->unsignedBigInteger('father_id')->unsigned();
+        });
+
+        Schema::table('sons', function( Blueprint $table){
+            $table->foreign('father_id')->references('id')->on('fathers')->onDelete('cascade');
         });
     }
 

@@ -16,6 +16,7 @@ class CreateFathersTable extends Migration
         Schema::create('fathers', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->string("name_father");
         });
     }
 
