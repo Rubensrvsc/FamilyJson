@@ -11,6 +11,6 @@ class Son extends Model
     protected $fillable = ['name_son'];
 
     public function father(){
-        return $this->hasOne('App\Father');
+        return $this->belongsTo('App\Father');
     }
 }

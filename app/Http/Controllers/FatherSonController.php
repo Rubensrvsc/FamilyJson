@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Father;
+use App\Son;
 
 class FatherSonController extends Controller
 {
@@ -13,7 +14,8 @@ class FatherSonController extends Controller
     
     public function index(){
         $father = Father::all();
-        return view("index",['father'=>$father]);
+        $son = Son::all();
+        return view("index",['father'=>$father,'son'=>$son]);
     }
 
     public function add_father(Request $request){
@@ -30,17 +32,23 @@ class FatherSonController extends Controller
     }
 
     public function add_child(Request $request,Father $father){
-        if ($request->name_child=="assasa"){
-            echo "<script language='javascript'>window.alert('Categoria já cadastrada')</script>";
+        if($request->name_child && $father->id){
+        $son = new Son();
+        $son->father_id = $father->id;
+        $son->name_son = $request->name_child;
+        $son->save();
         }
+        return redirect()->route('index');
         
     }
 
-    public function store(){
-
-    }
-
     public function read(){
+        $table = Father::with(['sons'])->get();
+        
+        $father = Father::all();
+        $son = Son::all();
+        
+        return view("index",['table'=>$table,'father'=>$father,'son'=>$son]);
 
     }
 }
