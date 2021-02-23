@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Father;
 use App\Son;
+use DB;
 
 class FatherSonController extends Controller
 {
@@ -50,5 +51,14 @@ class FatherSonController extends Controller
         
         return view("index",['table'=>$table,'father'=>$father,'son'=>$son]);
 
+    }
+
+    public function delete($son){
+        if($son){
+            DB::delete('delete from sons where id = ?',[$son]);
+            
+        }
+
+        return redirect()->route('index');
     }
 }

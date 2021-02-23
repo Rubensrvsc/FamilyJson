@@ -27,6 +27,11 @@
 @foreach($son as $s)
 @if($s->father_id == $f->id)
 <h3>{{$s->name_son}}</h3>
+<form  action="{{route('deleteSon',$s->id)}}" method="post">
+            @csrf
+            @method('DELETE')
+        <input type="submit" value="delete " >
+    </form>
 @endif
 @endforeach
 </div>

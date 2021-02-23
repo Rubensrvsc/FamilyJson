@@ -27,6 +27,11 @@
 <?php $__currentLoopData = $son; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $s): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 <?php if($s->father_id == $f->id): ?>
 <h3><?php echo e($s->name_son); ?></h3>
+<form  action="<?php echo e(route('deleteSon',$s->id)); ?>" method="post">
+            <?php echo csrf_field(); ?>
+            <?php echo method_field('DELETE'); ?>
+        <input type="submit" value="delete " >
+    </form>
 <?php endif; ?>
 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 </div>

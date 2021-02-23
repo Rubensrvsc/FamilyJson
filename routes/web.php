@@ -19,5 +19,5 @@ use App\Http\Controllers\FatherSonController;
 Route::get('/index',[FatherSonController::class,'index'])->name("index");
 Route::post('/index',[FatherSonController::class,'add_father'])->name("add_father");
 Route::post('/index/{father}',[FatherSonController::class,'add_child'])->name("add_child");
-Route::get('/',[FatherSonController::class,'store'])->name("store");
+Route::delete('/index/{s}',[FatherSonController::class,'delete'])->name("deleteSon");
 Route::get('/read',[FatherSonController::class,'read'])->name("read");
