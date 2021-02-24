@@ -1,12 +1,30 @@
 <html>
 <head>
 <title>Teste turim</title>
+<link rel="stylesheet" type="text/css" href="../sass/app.scss">
 </head>
 <body>
+<style>
+    .flex{
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.flex > div{
+    flex: 1 1;
+    margin: 10px;
+}
+
+</style>
+
 <div>
     <a href="#">Gravar</a>
     <a href="{{route('read')}}">Ler</a>
 </div>
+<section class="flex">
+<div>
 <form method="POST" action="{{route('add_father')}}">
 @csrf
     <label for="exampleInputEmail1">Nome do Pai</label>
@@ -15,7 +33,7 @@
 </form>
 
 @foreach($father as $f)
-<div>
+
 <h1>{{$f->name_father}}</h1>
 <form action="{{route('add_child',$f)}}" method="post">
  @csrf
@@ -34,11 +52,15 @@
     </form>
 @endif
 @endforeach
-</div>
+
 
 @endforeach
+</div>
+<div class="textarea">
 <textarea>
 {{$table ?? ''}}
 </textarea>
+</div>
+</section>
 </body>
 </html>

@@ -49,7 +49,7 @@ class FatherSonController extends Controller
         $father = Father::all();
         $son = Son::all();
         
-        return view("index",['table'=>$table,'father'=>$father,'son'=>$son]);
+        return view("index",['table'=>json_encode($table),'father'=>$father,'son'=>$son]);
 
     }
 
