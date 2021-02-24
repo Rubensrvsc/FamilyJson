@@ -20,4 +20,5 @@ Route::get('/index',[FatherSonController::class,'index'])->name("index");
 Route::post('/index',[FatherSonController::class,'add_father'])->name("add_father");
 Route::post('/index/{father}',[FatherSonController::class,'add_child'])->name("add_child");
 Route::delete('/index/{s}',[FatherSonController::class,'delete'])->name("deleteSon");
+Route::delete('/index/{f}',[FatherSonController::class,'deleteFather'])->name("deleteFather");
 Route::get('/read',[FatherSonController::class,'read'])->name("read");

@@ -35,6 +35,11 @@
 <?php $__currentLoopData = $father; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $f): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 
 <h1><?php echo e($f->name_father); ?></h1>
+<form  action="<?php echo e(route('deleteFather',$f->id)); ?>" method="post">
+            <?php echo csrf_field(); ?>
+            <?php echo method_field('DELETE'); ?>
+        <input type="submit" value="Deletar Pai " >
+    </form>
 <form action="<?php echo e(route('add_child',$f)); ?>" method="post">
  <?php echo csrf_field(); ?>
  <label for="exampleInputEmail1">Adicionar filho</label>
@@ -48,7 +53,7 @@
 <form  action="<?php echo e(route('deleteSon',$s->id)); ?>" method="post">
             <?php echo csrf_field(); ?>
             <?php echo method_field('DELETE'); ?>
-        <input type="submit" value="delete " >
+        <input type="submit" value="Deletar Filho " >
     </form>
 <?php endif; ?>
 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

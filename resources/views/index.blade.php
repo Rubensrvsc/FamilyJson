@@ -35,6 +35,11 @@
 @foreach($father as $f)
 
 <h1>{{$f->name_father}}</h1>
+<form  action="{{route('deleteFather',$f->id)}}" method="post">
+            @csrf
+            @method('DELETE')
+        <input type="submit" value="Deletar Pai " >
+    </form>
 <form action="{{route('add_child',$f)}}" method="post">
  @csrf
  <label for="exampleInputEmail1">Adicionar filho</label>
@@ -48,7 +53,7 @@
 <form  action="{{route('deleteSon',$s->id)}}" method="post">
             @csrf
             @method('DELETE')
-        <input type="submit" value="delete " >
+        <input type="submit" value="Deletar Filho " >
     </form>
 @endif
 @endforeach

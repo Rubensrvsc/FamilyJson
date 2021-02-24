@@ -63,4 +63,14 @@ class FatherSonController extends Controller
 
         return redirect()->route('index');
     }
+
+    public function deleteFather($father){
+        if($father){
+            DB::delete('delete from fathers where id = ?',[$father]);
+            DB::delete('delete from sons where father_id = ?',[$father]);
+            
+        }
+
+        return redirect()->route('index');
+    }
 }
