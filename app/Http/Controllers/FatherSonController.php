@@ -1,5 +1,7 @@
 <?php
-
+#Fiz com o Framework Laravel
+#As migrations do banco de dados pode ser encontradas em app/database/migrations
+#O projeto pode ser encontrado em: https://github.com/Rubensrvsc/FamilyJson
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
